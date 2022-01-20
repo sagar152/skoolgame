@@ -1,0 +1,129 @@
+.qustionpage{
+    /* linear-gradient(rgba(70, 1, 58, 0.8) 100%, rgba(0, 0, 0, 0.8)100%), */
+    background: url('../images/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+   color:white;
+   height:100%;
+   width:100%
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.htmlstands{
+   
+    text-align:center;
+   
+   height: 120px;
+   text-align: center;
+   display: flex;
+   /* position: relative;
+   top: 24%; */
+
+   border-radius: 0.5rem;
+   background-color: linear-gradient(180deg, #FFBB48 0%, #f2295b 100%) !important;
+}
+.item{
+    background-color: linear-gradient(180deg, #FFBB48 0%, #f2295b 100%) !important;
+}
+.imagehidedesktop{
+    display: none;
+}
+.qustion{
+    text-align:center;
+    color:white;
+    font-size:16px;
+    padding:'0px 18px';
+    padding-top:13px;
+    margin-bottom:'0';
+}
+@media screen and (max-width: 600px) {
+    .imagehide{
+        display: none !important;
+    }
+    .imagehidedesktop{
+        display: block;
+    }
+    .qustion{
+        text-align:left;
+        color:white;
+        font-size:12px;
+        padding:'0px 15px';
+        padding-top:13px;
+        margin-bottom:'0';
+    }
+  }
+
+.htmlstands h5{
+    /* position: absolute;
+    top: 40%;
+    left: 44%; */
+    font-size: 17px;
+    text-align: center;
+    
+}
+.container{
+    width: 90%;
+    margin: 0 auto;
+    height: 100%;
+ 
+}
+
+.answersheetsec{
+    width:80%;
+    margin: 1px auto;
+    border-radius:120px;
+    display: flex;
+    height:100%;
+    background-color:#73C6B6 !important;
+    
+}
+.number{
+    flex: 50%;
+}
+.qustion{
+    flex: 50%;
+}
+.answersheetthird{
+    width:80%;
+    margin: 1px auto;
+    border-radius:120px;
+    display: flex;
+    height:100%;
+    background-color:#5DADE2 !important;
+}
+.answersheetfourth{
+    width:80%;
+    margin: 1px auto;
+    border-radius:120px;
+    display: flex;
+    height:100%;
+    background-color:#8E44AD !important;
+}
+.answersheetfive{
+    width:80%;
+    margin: 1px auto;
+    border-radius:120px;
+    display: flex;
+    height:100%;
+    background-color:#E74C3C !important;
+}
+
+.answersheetfive:hover{
+   opacity: 0.8;
+}
+.answersheetsec:hover{
+    opacity: 0.8;
+}
+.answersheetthird:hover{
+    opacity: 0.8;
+}
+.answersheetfourth:hover{
+    opacity: 0.8;
+}
+
+
+
+    

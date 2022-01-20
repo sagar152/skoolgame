@@ -1,0 +1,321 @@
+/* .action-title{color: #e4e4e4;text-align: center;font-family: Roboto;text-decoration: underline;}
+.circle{
+  width:90px;height:80px;background-color:#FF881F;border: 2px solid #D35400;border-radius:50%;margin:0 auto auto;position:relative;
+  transition:all;animation-name:bounce;animation-duration:1000ms;animation-iteration-count:infinite;z-index:1;
+}
+.circle .eyes{width:12%;height:12%;background-color:#000;position: absolute;left:0;right:0;top:24px;bottom:0;border-radius:50%}
+.circle .eyes.l{left:20px;right:auto;}.circle .eyes.r{left:auto;right:20px;}
+.circle .mouth{
+  width: 30%;height: 30%;background-color: #fff;border-radius: 50%;position: absolute;
+  top: auto;bottom: 18%;left: 0;right: 0;margin: auto;
+}
+.circle .smile{
+  width: 110%;height: 80%;background-color: #FF881F;border-radius: 50%;position: absolute;
+    top: -6px;bottom: 0px;left: -1px;right: 0;margin: auto;
+  }
+.circle.one{width:80px;height:80px;}
+.circle-wrap{animation-name:moveCircle;animation-iteration-count:infinite;animation-timing-function:linear;position:absolute;left:0;}
+
+.circle-animation-area{width:420px;height:480px;margin:auto;display:flex;position:relative;}
+.circle .wing{transform: scale(1,1); position: absolute; top: 0; bottom: 0; left:10px; right:auto; margin: auto;}
+.circle .wing .joint{
+  width: 4px;height: 4px;background-color: #FF881F;position: absolute;top: 0;bottom: 0;left: -21px;margin: auto;
+  transform-origin:center right;animation-iteration-count:infinite;animation-timing-function:ease;animation-duration:1000ms;
+  transform:rotate(-24deg);animation-name:wingsFlap;	
+}
+.circle .wing.r{transform:scale(-1,1);left:auto; right:10px;}
+.circle .wing.r.row1{transform:scale(-0.4,0.4);top: -34px; right:3px;}
+.circle .wing.r.row2{transform:scale(-0.7,0.7);top: -16px; right:7px;}
+
+.circle .wing.l.row1{transform: scale(0.4,0.4);top: -34px;left:3px;}
+.circle .wing.l.row2{transform: scale(0.7,0.7);top: -16px;left:7px;}
+.circle-animation-area .shadowAnim{
+  width: 180px;height: 180px;background: rgb(204,204,204);background: radial-gradient(circle, rgba(204,204,204,1) 0%, rgba(255,255,255,0) 60%);
+    top: auto;bottom: -85px;left: 0;right: 0;position: absolute;margin: auto;opacity:0;
+    transform: scale(1,0.2);animation-name:shadowAnim;animation-duration:1000ms;animation-iteration-count:infinite;
+}
+
+@keyframes bounce{
+  0%{ 
+    animation-timing-function: cubic-bezier(.45,0,1,.56);
+    
+    transform: translateY(0px);
+    width:90px;height:80px;
+  }
+  30%{ 
+    width:70px;height:100px;
+  }
+  35%{ 
+    width:60px;height:105px;	
+  }
+  40%{ 
+    width:65px;height:110px;	
+  }
+  48%{ 
+    width:92px;height:68px;	
+    
+  }
+  50%{ 
+    width:95px;height:65px;	
+    transform: translateY(400px);
+  }
+}
+@keyframes wingsFlap{
+  0%{
+    animation-timing-function: cubic-bezier(.45,0,1,.56);
+    transform:rotate(-24deg);
+  }
+  10%{
+    transform:rotate(-14deg);
+  }
+  45%{
+    transform:rotate(12deg);
+  }
+  50%{
+    transform:rotate(8deg);
+  }
+}
+@keyframes shadowAnim{
+  0%{
+    opacity:0;
+
+  }
+  35%{
+    opacity:0;
+
+  }
+  50%{
+    opacity:1;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .circle-animation-area{width:320px;height:480px;margin:auto;display:flex;position:relative;}
+} */
+
+/* .App {
+  font-family: sans-serif;
+  text-align: center;
+} */
+
+@-webkit-keyframes square-animation {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  10.5% {
+    left: 0;
+    top: 0;
+  }
+  12.5% {
+    left: 32px;
+    top: 0;
+  }
+  23% {
+    left: 32px;
+    top: 0;
+  }
+  25% {
+    left: 64px;
+    top: 0;
+  }
+  35.5% {
+    left: 64px;
+    top: 0;
+  }
+  37.5% {
+    left: 64px;
+    top: 32px;
+  }
+  48% {
+    left: 64px;
+    top: 32px;
+  }
+  50% {
+    left: 32px;
+    top: 32px;
+  }
+  60.5% {
+    left: 32px;
+    top: 32px;
+  }
+  62.5% {
+    left: 32px;
+    top: 64px;
+  }
+  73% {
+    left: 32px;
+    top: 64px;
+  }
+  75% {
+    left: 0;
+    top: 64px;
+  }
+  85.5% {
+    left: 0;
+    top: 64px;
+  }
+  87.5% {
+    left: 0;
+    top: 32px;
+  }
+  98% {
+    left: 0;
+    top: 32px;
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+@keyframes square-animation {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  10.5% {
+    left: 0;
+    top: 0;
+  }
+  12.5% {
+    left: 32px;
+    top: 0;
+  }
+  23% {
+    left: 32px;
+    top: 0;
+  }
+  25% {
+    left: 64px;
+    top: 0;
+  }
+  35.5% {
+    left: 64px;
+    top: 0;
+  }
+  37.5% {
+    left: 64px;
+    top: 32px;
+  }
+  48% {
+    left: 64px;
+    top: 32px;
+  }
+  50% {
+    left: 32px;
+    top: 32px;
+  }
+  60.5% {
+    left: 32px;
+    top: 32px;
+  }
+  62.5% {
+    left: 32px;
+    top: 64px;
+  }
+  73% {
+    left: 32px;
+    top: 64px;
+  }
+  75% {
+    left: 0;
+    top: 64px;
+  }
+  85.5% {
+    left: 0;
+    top: 64px;
+  }
+  87.5% {
+    left: 0;
+    top: 32px;
+  }
+  98% {
+    left: 0;
+    top: 32px;
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+@-webkit-keyframes hue-rotate {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
+@keyframes hue-rotate {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
+
+
+.loading {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-animation: hue-rotate 10s linear infinite both;
+  animation: hue-rotate 10s linear infinite both;
+}
+
+.loading__square {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 28px;
+  margin: 2px;
+  border-radius: 2px;
+  background: #07a;
+  background-image: linear-gradient(45deg, #fa0 40%, #0c9 60%);
+  background-image: -moz-linear-gradient(#fa0, #fa0);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  -webkit-animation: square-animation 10s ease-in-out infinite both;
+  animation: square-animation 10s ease-in-out infinite both;
+}
+.loading__square:nth-of-type(0) {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.loading__square:nth-of-type(1) {
+  -webkit-animation-delay: -1.4285714286s;
+  animation-delay: -1.4285714286s;
+}
+.loading__square:nth-of-type(2) {
+  -webkit-animation-delay: -2.8571428571s;
+  animation-delay: -2.8571428571s;
+}
+.loading__square:nth-of-type(3) {
+  -webkit-animation-delay: -4.2857142857s;
+  animation-delay: -4.2857142857s;
+}
+.loading__square:nth-of-type(4) {
+  -webkit-animation-delay: -5.7142857143s;
+  animation-delay: -5.7142857143s;
+}
+.loading__square:nth-of-type(5) {
+  -webkit-animation-delay: -7.1428571429s;
+  animation-delay: -7.1428571429s;
+}
+.loading__square:nth-of-type(6) {
+  -webkit-animation-delay: -8.5714285714s;
+  animation-delay: -8.5714285714s;
+}
+.loading__square:nth-of-type(7) {
+  -webkit-animation-delay: -10s;
+  animation-delay: -10s;
+}

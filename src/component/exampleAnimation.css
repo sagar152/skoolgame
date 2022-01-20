@@ -1,0 +1,84 @@
+.example-steps {
+    position: absolute;
+  }
+  
+  .example-buttons {
+    padding-top: 75px;
+  }
+  
+  .example-enter {
+    opacity: 0.01;
+  }
+  
+  .example-enter.example-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+  
+  .example-exit {
+    opacity: 1;
+  }
+  
+  .example-exit.example-exit-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+  }
+  /* @import url('https://fonts.googleapis.com/css?family=Rubik:500&display=swap') */
+
+/* $ff: 'Rubik', sans-serif
+$dkblue: lighten(#2f416d, 10)
+$ltblue: #2e86de */
+
+
+h2 {
+  color: white;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+.outer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 10px;
+  width: 300px;
+  border: 1px solid blue;
+  border-radius: 50px;
+  background: blue;
+}
+@media screen and (max-width: 600px) {
+  .outer {
+    position: relative;
+    height: 10px;
+    width: 100px;
+    left: 0;
+  }
+}
+.inner {
+  position: absolute;
+  top: 0px;
+  height: 10px;
+  width: 250px;
+  background: #ee5253;
+  border-radius: 25px;
+  transition: width 100ms ease-out;
+}
+button {
+  /* font-family:  */
+  cursor: pointer;
+  margin-top: 20px;
+  border: transparent;
+  border-radius: 5px;
+  background: transparent;
+  color: #fff;
+  width: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  transition: 50ms ease-out;
+}
+button:hover {
+  transform: scale(1.04);
+}
+button:active {
+  transform: scale(1.09);
+}

@@ -1,0 +1,6 @@
+.swal-button-container{
+    margin: 5px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+}

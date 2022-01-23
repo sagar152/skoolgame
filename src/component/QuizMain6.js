@@ -274,14 +274,14 @@ export default class Quiz extends Component {
                       style={{ width: "100%", height: "auto" }}
                     />
                     <div style={{position:'absolute',top: '46.5%',left:'43%'}}> 
-       <h1 style={{color:'red'}}>
+       <h1 className='font' style={{color:'red'}}>
             {name.value}
                     </h1>
                   
                     {/* <p>Thank you!</p> */}
                     </div>
                     <div style={{position:'absolute',bottom: '38%',right:'35%'}}>
-                    <p style={{color: 'black',fontWeight:'bold',position: 'relative',left:'60px',top:'-15px'}}>
+                    <p className='font' style={{color: 'black',fontWeight:'bold',position: 'relative',left:'60px',top:'-15px'}}>
                         {score} <span style={{fontSize:'9px'}}>Out of </span> {Object.keys(quiestions).length}
                     </p>
                     

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
 .NextStep{
     background-color: #009e00;
     color:#fff;
@@ -38,3 +39,6 @@
     display: flex;
 }
 
+.font{
+    font-family: 'Ubuntu', sans-serif;
+}

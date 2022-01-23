@@ -326,13 +326,15 @@ getCurrentDate=(separator='')=>{
                     {/* <p>Thank you!</p> */}
                     </div>
                     <div style={{position:'absolute',bottom: '38%',right:'35%'}}>
-                    <p style={{color: 'black',fontWeight:'bold',position: 'relative',left:'60px',top:'-15px'}}>
-                        {score} <span style={{fontSize:'9px'}}>Out of </span> {Object.keys(quiestions).length}
+                    
+                    <p style={{color: 'black',fontWeight:'bold',position: 'relative',left:'102px',top:'17px' , fontSize: '18px'}}>
+                         <span style={{fontSize:'14px'}}>For Successfully Completing Computer Fundamental Quiz.<br/>
+                        Scored {score} Out of </span> {Object.keys(quiestions).length}  .
                     </p>
                     
                     </div>
                     <div style={{position: 'absolute',bottom: '25%',left: '25%'}}>
-                    <p>{this.getCurrentDate()}</p>
+                    <p style={{fontSize:'13px'}}>{this.getCurrentDate()}</p>
                     </div>
                   </div> 
                   {console.log(name,'jsx')}

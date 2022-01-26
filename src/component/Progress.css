@@ -9,7 +9,7 @@ h1 {
     /* justify-content: center; */
     position: absolute;
     top: 16px;
-    left: 19px;
+    right: 19px;
   }
  
   .timer {
@@ -33,6 +33,15 @@ h1 {
     text-align: center;
     font-size: 16px;
   }
+  .logo{
+    width: 200px;
+    position: absolute;
+    top: 39px;
+  }
+  .logo img{
+    width: 100%;
+    height: auto;
+  }
   @media screen and (max-width:600px) {
     .timer-wrapper{
       top: 900px;
@@ -41,6 +50,12 @@ h1 {
     }
     .countdown1{
       
+    }
+    .logo{
+      width: 95px;
+      position: absolute;
+      top: 17px;
+      left: 5px;
     }
     h1 {
       font-family: "Roboto";

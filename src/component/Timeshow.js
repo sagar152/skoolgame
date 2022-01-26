@@ -23,18 +23,28 @@ function Timeshow(props) {
       return null;
     }
   });
-
+  const [a,setB] = useState(true)
+const ab = ()=>{
+  setB(false)
+}
+const bc = ()=>{
+  setB(true)
+}
   return (
     <div>
       <div className={styles.qustionpage}>
         <Container maxWidth="xl">
           <div>
+          <div className='logo'>
+        <img src='https://www.skoolcoder.com/wp-content/uploads/2021/12/logo_Skoolcoder-768x160-1.png' />
+      </div>
             <Box sx={{ width: "80%" }} style={{ margin: "1px auto" }}>
               <Grid
                 container
                 rowSpacing={2}
                 columnSpacing={{ xs: 1, sm: 2, md: 3 }}
               >
+                
                 <Grid md={6} xs={12} sm={12}>
                   <div
                     style={{ padding: "50px 50px" }}
@@ -75,18 +85,35 @@ function Timeshow(props) {
                       />
                       <p>music on</p>
                     </div>
-                    <div style={{ marginLeft: "20px" }}>
-                      {" "}
-                      <img
-                        alt=""
-                        src={pause}
-                        onClick={() => {
-                          audio.pause();
-                        }}
-                        style={{ marginLeft: "10px", cursor: "pointer" }}
-                      />
-                      <p>pause</p>
-                    </div>
+                   {a == true ?  <div style={{ marginLeft: "20px" }}>
+
+{" "}
+<img
+  alt=""
+  src={pause}
+  // onClick={() => {
+  //   audio.pause();
+  // }}
+  onClick={ab}
+  style={{ marginLeft: "10px", cursor: "pointer" }}
+/>
+<p>pause</p>
+
+</div>:<div style={{ marginLeft: "20px" }}>
+
+{" "}
+<img
+  alt=""
+  src={pause}
+  // onClick={() => {
+  //   audio.pause();
+  // }}
+  onClick={bc}
+  style={{ marginLeft: "10px", cursor: "pointer" }}
+/>
+<p>pause</p>
+
+</div> }
                   </div>
                 </Grid>
               </Grid>
@@ -97,8 +124,10 @@ function Timeshow(props) {
       </div>
       <div className="progressmanage">
         {" "}
-        <ProgressBar />
+        <ProgressBar playing={a} />
+
       </div>
+   
     </div>
   );
 }

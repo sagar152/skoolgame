@@ -181,7 +181,7 @@ getCurrentDate=(separator='')=>{
     const { correctAnswers, step, score } = this.state;
     if (answer === correctAnswers[step]) {
       this.setState({
-        score: score + 1,
+        score: score + 10,
         correctAnswer: correctAnswers[step],
         clickedAnswer: answer,
       });
@@ -303,38 +303,31 @@ getCurrentDate=(separator='')=>{
               
                 <div
                   className="finalPage"
-                  style={{
-                    backgroundColor: "white",
-                    padding: "12px 12px",
-                    borderRadius: "10px",
-                    marginTop: "2%",
-                    boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-                  }}
                 >
-                  <div style={{position:'relative'}} className='ceritficate'>
+                  <div  className='ceritficate'>
                     <img
                       src={Certificate}
                       id='image'
                       alt="certificate not found"
                       style={{ width: "100%", height: "auto" }}
                     />
-      <div style={{position:'absolute',top: '46.5%',left:'43%'}}> 
+      <div className='headdiv'> 
        <h1 style={{color:'red'}}>
             {name.value}
                     </h1>
                   
                     {/* <p>Thank you!</p> */}
                     </div>
-                    <div style={{position:'absolute',bottom: '38%',right:'35%'}}>
+                    <div className='paradiv'>
                     
-                    <p style={{color: 'black',fontWeight:'bold',position: 'relative',left:'102px',top:'17px' , fontSize: '18px'}}>
-                         <span style={{fontSize:'14px'}}>For Successfully Completing Computer Fundamental Quiz.<br/>
-                        Scored {score} Out of </span> {Object.keys(quiestions).length}  .
+                    <p className="para">
+                         <span className='paraspan'>For Successfully Completing Computer Fundamental Quiz.<br/>
+                        Scored {score} Out of </span> 100  .
                     </p>
                     
                     </div>
-                    <div style={{position: 'absolute',bottom: '25%',left: '25%'}}>
-                    <p style={{fontSize:'13px'}}>{this.getCurrentDate()}</p>
+                    <div className='datediv'>
+                    <p className='date' >{this.getCurrentDate()}</p>
                     </div>
                   </div> 
                   {console.log(name,'jsx')}
@@ -342,50 +335,32 @@ getCurrentDate=(separator='')=>{
                   <Button
                     style={{
                       marginTop: "35px",
-                      border: "2px solid green",
+                      border: "2px solid #ff7d14",
                       width: "30%",
                     }}
                   >
-                    <Link
-                      to="/"
+                    <a
+                      href="/"
                       style={{
-                        color: "green",
+                        color: "#ff7d14",
                         fontWeight: "bold",
                         textDecoration: "none",
                       }}
                     >
                       Back
-                    </Link>
+                    </a>
                   </Button>
                   <Button
-                    style={{
-                      marginTop: "35px",
-                      border: "2px solid green",
-                      width: "50%",
-                      marginLeft: "20px",
-                    }}
+                 className='download-btn'
                     onClick={this.printDocument}
                   >
-                    <Link
-                      to={`${Certificate}`}
-                      target="_blank"
-                    
-                      style={{
-                        color: "green",
-                        fontWeight: "bold",
-                        textDecoration: "none",
-                      }}
-                      
-                    >
                    Download Certificate
-                    </Link>
                   </Button>
-                  <button onClick={this.closeModal}>close</button>
-                  {/* <ShareSocial
+                  {/* <button onClick={this.closeModal}>close</button> */}
+<ShareSocial title={'Share Your Success with Your friends & Relatives'}
         url="https://skoolcoder.com"
-        socialTypes={["facebook", "twitter", "reddit", "linkedin"]}
-      /> */}
-                  {/* <Link to="/files/myfile.pdf" >Download</Link> */}
+        socialTypes={["facebook", "Instapaper"]}
+      />
                 </div>
                
               </Grid>

@@ -14,13 +14,16 @@ const Textpage2 = ()=>{
     //      setSec(<Timeshow />);
     //    }
     //  },[seconds]);
-
     const [name , setName] =useState('')
-    console.log(name,'lkdfsjlfjsldjl')
 const sweetInput = async ()=>{
   await swal("Please Enter Your Name", {
     content: "input",
-    closeOnClickOutside:false
+    closeOnClickOutside:false,
+     button: {
+    text: "Start",
+    closeModal: false,
+  },
+  value: true,
   }
   )
   .then(async(value) => {

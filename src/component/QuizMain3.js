@@ -12,6 +12,7 @@ import Button from "@mui/material/Button";
 import Certificate from "../images/certifiate.jpg";
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { ShareSocial } from "react-share-social";
 import Modal from 'react-modal';
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -19,7 +20,19 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: 'center',
   color: theme.palette.text.secondary,
 }));
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    height: '100%',
+    width: '100%'
 
+  },
+};
 export default class Quiz extends Component {
 
     // initiating the local state
@@ -119,7 +132,8 @@ export default class Quiz extends Component {
         clickedAnswer: 0,
         step: 1,
         score: 0,
-        name:this.props.name
+        name:this.props.name,
+        modalIsOpen:true
     }
     printDocument = () => {
 
@@ -170,88 +184,130 @@ export default class Quiz extends Component {
     // method to move to the next question
     nextStep = (step) => {
         this.setState({
-            step: step + 1,
+            step: step + 10,
             correctAnswer: 0,
             clickedAnswer: 0
         });
     }
 
     render(){
-        let { quiestions, answers, correctAnswer, clickedAnswer, step, score ,name} = this.state;
+        let { quiestions, answers, correctAnswer, clickedAnswer, step, score ,name,modalIsOpen} = this.state;
         return(
-            <div className="Content">
-                {step <= Object.keys(quiestions).length ? 
-                    (<div>
-                     <Box  sx={{ width: '100%' }} style={{ backgroundColor: '#F4F6F6', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px', marginTop: '50px', paddingBottom: '50px' }}>
-      <Grid container spacing={2} columnSpacing={{ xs: 2, sm: 2, md: 2 }}  sx={{
-          display: 'flex',
-          justifyContent: 'center',
-         
-          
-        }}>
-        <Grid item md={12} xs={12} style={{ paddingTop: '0' }} >
-        <Item style={{ backgroundColor: '#FFBB48', borderTopRightRadius: '10px', borderTopLeftRadius: '10px', borderBottomLeftRadius: '0px', borderBottomRightRadius: '0' }}>  <div className={styles.htmlstands}>
-                          <h5 style={{ color: 'white', textAlign: 'center', width: '100%', paddingTop: '5%', fontSize: '2.25rem' }} className='Qustion-step'> <Question
-                            question={quiestions[step]}
-                        /></h5>
-                        </div></Item>
-        </Grid>
-        <Grid item xs={11}>
-          <Answer
-                            answer={answers[step]}
-                            step={step}
-                            checkAnswer={this.checkAnswer}
-                            correctAnswer={correctAnswer}
-                            clickedAnswer={clickedAnswer}
-                        />
-        </Grid>
-      </Grid>
-    </Box>
-                       
-                       
-                        <button
-                        className="NextStep"
-                        disabled={
-                            clickedAnswer && Object.keys(quiestions).length >= step
-                            ? false : true
-                        }
-                        onClick={() => this.nextStep(step)}>Next</button>
-                    </div>) : (
-                         <Box sx={{ flexGrow: 1 }}>
-                         <Grid container spacing={2}>
-                           <Grid item xs={12}>
-                           <div
-                  className="finalPage"
-                  style={{
-                    backgroundColor: "white",
-                    padding: "12px 12px",
-                    borderRadius: "10px",
-                    marginTop: "2%",
-                    boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+          <div className="Content">
+          {step <= Object.keys(quiestions).length ? (
+            <div>
+              <Box
+                sx={{ width: "100%" }}
+                style={{
+                  backgroundColor: "#F4F6F6",
+                  borderRadius: "10px",
+                  boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                  marginTop: "50px",
+                  paddingBottom: "50px",
+                }}
+              >
+                <Grid
+                  container
+                  spacing={2}
+                  columnSpacing={{ xs: 2, sm: 2, md: 2 }}
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
                   }}
                 >
-                  <div style={{position:'relative'}} className='ceritficate'>
+                  <Grid item md={12} xs={12} style={{ paddingTop: "0" }}>
+                    <Item
+                      style={{
+                        backgroundColor: "#FFBB48",
+                        borderTopRightRadius: "10px",
+                        borderTopLeftRadius: "10px",
+                        borderBottomLeftRadius: "0px",
+                        borderBottomRightRadius: "0",
+                      }}
+                    >
+                      {" "}
+                      <div className={styles.htmlstands}>
+                        <h5
+                          style={{
+                            color: "white",
+                            textAlign: "center",
+                            width: "100%",
+                            paddingTop: "5%",
+                            fontSize: "2.25rem",
+                          }}
+                          className="Qustion-step"
+                        >
+                          {" "}
+                          <Question question={quiestions[step]} />
+                        </h5>
+                      </div>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={11}>
+                    <Answer
+                      answer={answers[step]}
+                      step={step}
+                      checkAnswer={this.checkAnswer}
+                      correctAnswer={correctAnswer}
+                      clickedAnswer={clickedAnswer}
+                    />
+                  </Grid>
+                </Grid>
+              </Box>
+  
+              <button
+                className="NextStep"
+                disabled={
+                  clickedAnswer && Object.keys(quiestions).length >= step
+                    ? false
+                    : true
+                }
+                onClick={() => step ? this.nextStep(step) : <a href='/computerfundamental'>fsfjsflksljf</a>}
+              >
+                Next
+              </button>
+            </div>
+          ) : (
+          
+             <Modal
+             isOpen={modalIsOpen}
+             onAfterOpen={this.afterOpenModal}
+             onRequestClose={this.closeModal}
+             style={customStyles}
+             contentLabel="Example Modal"
+           >
+             
+             <Box sx={{ flexGrow: 1 }}>
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                
+                <div
+                  className="finalPage"
+                >
+                  <div  className='ceritficate'>
                     <img
                       src={Certificate}
                       id='image'
                       alt="certificate not found"
                       style={{ width: "100%", height: "auto" }}
                     />
-  <div style={{position:'absolute',top: '46.5%',left:'43%'}}> 
+      <div className='headdiv'> 
        <h1 style={{color:'red'}}>
             {name.value}
                     </h1>
                   
                     {/* <p>Thank you!</p> */}
                     </div>
-                    <div style={{position:'absolute',bottom: '38%',right:'35%'}}>
-                    <p style={{color: 'black',fontWeight:'bold',position: 'relative',left:'60px',top:'-15px'}}>
-                        {score} <span style={{fontSize:'9px'}}>Out of </span> {Object.keys(quiestions).length}
+                    <div className='paradiv'>
+                    
+                    <p className="para">
+                         <span className='paraspan'>For Successfully Completing HTML Fundamental Quiz.<br/>
+                        Scored {score} Out of </span> 100  .
                     </p>
                     
                     </div>
-                    <div style={{position: 'absolute',bottom: '25%',left: '25%'}}>
-                    <p>{this.getCurrentDate()}</p>
+                    <div className='datediv'>
+                    <p className='date' >{this.getCurrentDate()}</p>
                     </div>
                   </div> 
                   {console.log(name,'jsx')}
@@ -259,59 +315,41 @@ export default class Quiz extends Component {
                   <Button
                     style={{
                       marginTop: "35px",
-                      border: "2px solid green",
+                      border: "2px solid #ff7d14",
                       width: "30%",
                     }}
                   >
-                    <Link
-                      to="/"
+                    <a
+                      href="/"
                       style={{
-                        color: "green",
+                        color: "#ff7d14",
                         fontWeight: "bold",
                         textDecoration: "none",
                       }}
                     >
                       Back
-                    </Link>
+                    </a>
                   </Button>
                   <Button
-                    style={{
-                      marginTop: "35px",
-                      border: "2px solid green",
-                      width: "50%",
-                      marginLeft: "20px",
-                    }}
+                 className='download-btn'
                     onClick={this.printDocument}
                   >
-                    <Link
-                      to={`${Certificate}`}
-                      target="_blank"
-                    
-                      style={{
-                        color: "green",
-                        fontWeight: "bold",
-                        textDecoration: "none",
-                      }}
-                      
-                    >
                    Download Certificate
-                    </Link>
                   </Button>
-                  <button onClick={this.closeModal}>close</button>
-                  {/* <ShareSocial
+                  {/* <button onClick={this.closeModal}>close</button> */}
+<ShareSocial title={'Share Your Success with Your friends & Relatives'}
         url="https://skoolcoder.com"
-        socialTypes={["facebook", "twitter", "reddit", "linkedin"]}
-      /> */}
-                  {/* <Link to="/files/myfile.pdf" >Download</Link> */}
+        socialTypes={["facebook", "Instapaper"]}
+      />
                 </div>
-                           </Grid>
-                           
-                         </Grid>
-                       </Box>
-                       
-                    )
-                }
-            </div>
+                 
+                </Grid>
+              </Grid>
+            </Box>
+           </Modal>
+           
+          )}
+        </div>
         );
     }
 }

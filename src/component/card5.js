@@ -21,7 +21,11 @@ const Textpage5 = ()=>{
 const sweetInput = async ()=>{
   await swal("Please Enter Your Name", {
     content: "input",
-    closeOnClickOutside:false
+    closeOnClickOutside:false,
+    button: {
+      text: "Start",
+      closeModal: false,
+    },
   }
   )
   .then(async(value) => {

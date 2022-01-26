@@ -11,7 +11,7 @@ import music from "../images/music-on.svg";
 import pause from "../images/pause.svg";
 import ringer from "./Ringer.mp3";
 import boy from "../images/boy1.png";
-import Quiz2 from "./QuizMain";
+import Quiz2 from "./QuizMain2";
 
 function Timeshow1(props) {
   const audio = new Audio(ringer);
@@ -25,7 +25,13 @@ function Timeshow1(props) {
       return null;
     }
   });
-
+  const [a,setB] = useState(true)
+const ab = ()=>{
+  setB(false)
+}
+const bc = ()=>{
+  setB(true)
+}
   return (
     <div>
       <div className={styles.qustionpage}>
@@ -77,18 +83,35 @@ function Timeshow1(props) {
                       />
                       <p>music on</p>
                     </div>
-                    <div style={{ marginLeft: "20px" }}>
-                      {" "}
-                      <img
-                        alt=""
-                        src={pause}
-                        onClick={() => {
-                          audio.pause();
-                        }}
-                        style={{ marginLeft: "10px", cursor: "pointer" }}
-                      />
-                      <p>pause</p>
-                    </div>
+                    {a == true ?  <div style={{ marginLeft: "20px" }}>
+
+{" "}
+<img
+  alt=""
+  src={pause}
+  // onClick={() => {
+  //   audio.pause();
+  // }}
+  onClick={ab}
+  style={{ marginLeft: "10px", cursor: "pointer" }}
+/>
+<p>pause</p>
+
+</div>:<div style={{ marginLeft: "20px" }}>
+
+{" "}
+<img
+  alt=""
+  src={pause}
+  // onClick={() => {
+  //   audio.pause();
+  // }}
+  onClick={bc}
+  style={{ marginLeft: "10px", cursor: "pointer" }}
+/>
+<p>pause</p>
+
+</div> }
                   </div>
                 </Grid>
               </Grid>
@@ -99,7 +122,7 @@ function Timeshow1(props) {
       </div>
       <div className="progressmanage">
         {" "}
-        <ProgressBar />
+        <ProgressBar playing={a}/>
       </div>
     </div>
   );

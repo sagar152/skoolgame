@@ -4,3 +4,7 @@
     position: relative;
     justify-content: center;
 }
+.swal-button{
+    background-color: #FF7D14;
+    font-size: 1rem;
+}

@@ -1,10 +1,9 @@
-
 import React ,{useEffect,useState} from 'react';
 import Timeshow2 from './Timeshow2'
 import Spiner from './Spiner'
 import swal from 'sweetalert'
 import './swals.css'
-const Textpage3 = ()=>{
+const Textpage2 = ()=>{
   const [isPageLoading, setPageLoading] = React.useState(true);
     // const [seconds, setSeconds] = React.useState(4);
     // const [sec,setSec] = React.useState(null)
@@ -21,7 +20,11 @@ const Textpage3 = ()=>{
 const sweetInput = async ()=>{
   await swal("Please Enter Your Name", {
     content: "input",
-    closeOnClickOutside:false
+    closeOnClickOutside:false,
+    button: {
+      text: "Start",
+      closeModal: false,
+    },
   }
   )
   .then(async(value) => {
@@ -39,10 +42,10 @@ const sweetInput = async ()=>{
     },[])
     return(
         <>
-        {isPageLoading === true ? <Spiner />:<Timeshow2 />}
+        {isPageLoading === true ? <Spiner />:<Timeshow2 name={name}/>}
         {/* {seconds ?<div className="image-div" > <h1 style={{fontSize:'80px'}}> {seconds}</h1></div>:<div>{sec}</div>} */}
         </>
     )
 }
 
-export default Textpage3;
+export default Textpage2;

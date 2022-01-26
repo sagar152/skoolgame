@@ -14,10 +14,16 @@
     display: none;
 }
 
-.finalPage{
+.finalPage {
     text-align: center;
     width: 50%;
     margin: 2% auto;
+    background-color: white;
+    padding: 12px 12px;
+    border-radius: 10px;
+    margin-top: 2%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
 }
 .finalPage h1{
     text-align: center;
@@ -28,17 +34,133 @@
     color: #008416;
     text-transform: none;
     text-shadow: none;
+    
 }
 
 .finalPage p{
     color: black;
     font-weight: bold;
 }
-
+.ceritficate{
+    position:relative;
+    width:100%
+}
 .makeStyles-iconContainer-3{
     display: flex;
 }
 
 .font{
     font-family: 'Ubuntu', sans-serif;
+}
+.makeStyles-copyContainer-5{
+    display: none !important;
+}
+.makeStyles-container-1{
+    margin: 0 auto !important;
+}
+.makeStyles-title-2{
+    color: #ff7d14 !important;
+  
+}
+
+.download-btn{
+   color: #ff7d14 !important;
+        margin-top: 35px !important;
+        border: 2px solid #ff7d14 !important;
+        width: 30% !important;
+        margin-left: 20px !important;
+    
+}
+.headdiv{
+    position: absolute;
+    top: 46.5%;
+    left: 43%;
+  
+}
+.paradiv{
+    position:absolute ;
+    bottom: 38% ;
+    right:35% ;
+   
+}
+.para{
+    color: black;
+    font-weight:bold;
+    position: relative;
+    left: 102px;
+    top: 17px;
+     font-size:18px;
+   
+}
+.paraspan{
+font-size: 14px;
+}
+.date{
+    font-size: 13px;
+}
+.datediv{
+    position: absolute;
+    bottom:25%;
+    left:25%;
+
+
+}
+@media screen and (max-width:600px){
+    .finalPage {
+        text-align: center;
+        min-width: 100% !important;
+        margin: 0% auto;
+        background-color: white;
+        padding: 0px 0px;
+        border-radius: 10px;
+        margin-top: 2%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+    .ceritficate{
+        position:relative;
+        width:100%;
+        height: auto;
+    }
+    .headdiv{
+        position: absolute;
+        top: 40.5%;
+        left: 25%;
+        margin: 0 auto;
+    }
+    .paradiv{
+        position: absolute;
+        bottom: 30%;
+        right: 53%;
+        width: 56%;
+        margin: 0 auto;
+    }
+    .para{
+        color: black;
+        font-weight: bold;
+        /* position: relative; */
+        left: 102px;
+        top: 0px;
+        font-size: 8px;
+        line-height: 9px;
+        text-align: left;
+    }
+    .paraspan{
+    font-size: 7px;
+    }
+    .datediv{
+        position: absolute;
+    bottom: 23%;
+    left: 32%;
+    }
+    .date{
+        font-size: 8px;
+    }
+    .download-btn{
+        color: #ff7d14 !important;
+             margin-top: 35px !important;
+             border: 2px solid #ff7d14 !important;
+             width: 50% !important;
+             margin-left: 20px !important;
+         
+     }
 }

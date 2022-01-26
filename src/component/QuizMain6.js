@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Certificate from "../images/certifiate.jpg";
 import jsPDF from "jspdf";
+import { ShareSocial } from "react-share-social";
 import html2canvas from "html2canvas";
 import Modal from "react-modal";
 const Item = styled(Paper)(({ theme }) => ({
@@ -19,7 +20,19 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: "center",
   color: theme.palette.text.secondary,
 }));
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    height: '100%',
+    width: '100%'
 
+  },
+};
 export default class Quiz extends Component {
   // initiating the local state
   state = {
@@ -114,6 +127,7 @@ export default class Quiz extends Component {
     step: 1,
     score: 0,
     name: this.props.name,
+    modalIsOpen:true
   };
   printDocument = () => {
     html2canvas(document.querySelector(".ceritficate")).then((canvas) => {
@@ -161,7 +175,7 @@ export default class Quiz extends Component {
   // method to move to the next question
   nextStep = (step) => {
     this.setState({
-      step: step + 1,
+      step: step + 10,
       correctAnswer: 0,
       clickedAnswer: 0,
     });
@@ -176,6 +190,7 @@ export default class Quiz extends Component {
       step,
       score,
       name,
+      modalIsOpen
     } = this.state;
     return (
       <div className="Content">
@@ -253,94 +268,83 @@ export default class Quiz extends Component {
             </button>
           </div>
         ) : (
+          <Modal
+          isOpen={modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          
           <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <div
+           <Grid container spacing={2}>
+             <Grid item xs={12}>
+             <div
                   className="finalPage"
-                  style={{
-                    backgroundColor: "white",
-                    padding: "12px 12px",
-                    borderRadius: "10px",
-                    marginTop: "2%",
-                    boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-                  }}
                 >
-                  <div style={{ position: "relative" }} className="ceritficate">
+                  <div  className='ceritficate'>
                     <img
                       src={Certificate}
-                      id="image"
+                      id='image'
                       alt="certificate not found"
                       style={{ width: "100%", height: "auto" }}
                     />
-                    <div style={{position:'absolute',top: '46.5%',left:'43%'}}> 
-       <h1 className='font' style={{color:'red'}}>
+      <div className='headdiv'> 
+       <h1 style={{color:'red'}}>
             {name.value}
                     </h1>
                   
                     {/* <p>Thank you!</p> */}
                     </div>
-                    <div style={{position:'absolute',bottom: '38%',right:'35%'}}>
-                    <p className='font' style={{color: 'black',fontWeight:'bold',position: 'relative',left:'60px',top:'-15px'}}>
-                        {score} <span style={{fontSize:'9px'}}>Out of </span> {Object.keys(quiestions).length}
+                    <div className='paradiv'>
+                    
+                    <p className="para">
+                         <span className='paraspan'>For Successfully Completing AppLAb Fundamental Quiz.<br/>
+                        Scored {score} Out of </span> 100  .
                     </p>
                     
                     </div>
-                    <div style={{position: 'absolute',bottom: '25%',left: '25%'}}>
-                    <p>{this.getCurrentDate()}</p>
+                    <div className='datediv'>
+                    <p className='date' >{this.getCurrentDate()}</p>
                     </div>
-                  </div>
-                  {console.log(name, "jsx")}
+                  </div> 
+                  {console.log(name,'jsx')}
                   {/* <h1 style={{color:'black'}}>{name}</h1> */}
                   <Button
                     style={{
                       marginTop: "35px",
-                      border: "2px solid green",
+                      border: "2px solid #ff7d14",
                       width: "30%",
                     }}
                   >
-                    <Link
-                      to="/"
+                    <a
+                      href="/"
                       style={{
-                        color: "green",
+                        color: "#ff7d14",
                         fontWeight: "bold",
                         textDecoration: "none",
                       }}
                     >
                       Back
-                    </Link>
+                    </a>
                   </Button>
                   <Button
-                    style={{
-                      marginTop: "35px",
-                      border: "2px solid green",
-                      width: "50%",
-                      marginLeft: "20px",
-                    }}
+                 className='download-btn'
                     onClick={this.printDocument}
                   >
-                    <Link
-                      to={`${Certificate}`}
-                      target="_blank"
-                      style={{
-                        color: "green",
-                        fontWeight: "bold",
-                        textDecoration: "none",
-                      }}
-                    >
-                      Download Certificate
-                    </Link>
+                   Download Certificate
                   </Button>
-                  <button onClick={this.closeModal}>close</button>
-                  {/* <ShareSocial
+                  {/* <button onClick={this.closeModal}>close</button> */}
+<ShareSocial title={'Share Your Success with Your friends & Relatives'}
         url="https://skoolcoder.com"
-        socialTypes={["facebook", "twitter", "reddit", "linkedin"]}
-      /> */}
-                  {/* <Link to="/files/myfile.pdf" >Download</Link> */}
+        socialTypes={["facebook", "Instapaper"]}
+      />
                 </div>
-              </Grid>
-            </Grid>
-          </Box>
+              
+             </Grid>
+           </Grid>
+         </Box>
+        </Modal>
         )}
       </div>
     );

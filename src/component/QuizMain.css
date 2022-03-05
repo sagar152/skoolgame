@@ -27,7 +27,7 @@
 }
 .finalPage h1{
     text-align: center;
-    margin: 15px 0;
+    /* margin: 15px 0; */
     font-size: 25px;
     font-family: Arial,sans-serif;
     font-weight: bold;
@@ -74,7 +74,9 @@
 .headdiv{
     position: absolute;
     top: 46.5%;
-    left: 43%;
+    /* left: 43%; */
+    text-align: center;
+    width: 100%;
   
 }
 .paradiv{
@@ -123,8 +125,10 @@ font-size: 14px;
     }
     .headdiv{
         position: absolute;
-        top: 40.5%;
-        left: 25%;
+        top: 46.5%;
+        /* left: 25%; */
+        text-align: center;
+    width: 100%;
         margin: 0 auto;
     }
     .paradiv{

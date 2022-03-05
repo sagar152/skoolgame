@@ -11,6 +11,11 @@ import { Link } from "react-router-dom";
 import { ShareSocial } from "react-share-social";
 import Button from "@mui/material/Button";
 import Certificate from "../images/certifiate.jpg";
+import {
+  exportComponentAsJPEG,
+  exportComponentAsPDF,
+  exportComponentAsPNG
+} from "react-component-export-image";
 // import { renderToString } from 'react-dom/server';
 // import jsPDF from 'jspdf';
 import Modal from 'react-modal';
@@ -42,7 +47,10 @@ const customStyles = {
 export default class Quiz extends Component {
   // initiating the local state
   
-  
+  constructor(props) {
+    super(props);
+    this.componentRef = React.createRef();
+  }
   state = {
     quiestions: {
       1: "______ is the father of computer.",
@@ -135,7 +143,8 @@ export default class Quiz extends Component {
     step: 1,
     score: 0,
     name:this.props.name,
-    modalIsOpen:true
+    modalIsOpen:true,
+  
   };
 
   
@@ -304,7 +313,7 @@ getCurrentDate=(separator='')=>{
                 <div
                   className="finalPage"
                 >
-                  <div  className='ceritficate'>
+                  <div  className='ceritficate' ref={this.componentRef} >
                     <img
                       src={Certificate}
                       id='image'
@@ -322,7 +331,7 @@ getCurrentDate=(separator='')=>{
                     
                     <p className="para">
                          <span className='paraspan'>For Successfully Completing Computer Fundamental Quiz.<br/>
-                        Scored {score} Out of </span> 100  .
+                         his/her  Score is  {score} Out of </span> 100  .
                     </p>
                     
                     </div>
@@ -352,9 +361,10 @@ getCurrentDate=(separator='')=>{
                   </Button>
                   <Button
                  className='download-btn'
-                    onClick={this.printDocument}
+                    // onClick={this.printDocument}
+                    onClick={() => exportComponentAsJPEG(this.componentRef)}
                   >
-                   Download Certificate
+                   Download 
                   </Button>
                   {/* <button onClick={this.closeModal}>close</button> */}
 <ShareSocial title={'Share Your Success with Your friends & Relatives'}

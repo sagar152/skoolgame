@@ -8,3 +8,14 @@
     background-color: #FF7D14;
     font-size: 1rem;
 }
+
+.swal-overlay--show-modal{
+   background: linear-gradient(315deg, #0008 0%, #0008 74%), url('../images/swalbg.jpg') !important;
+   background-position: center !important;
+   background-size: cover !important;
+   background-repeat: no-repeat !important;
+   width: 100% !important;
+   height: 100vh !important;
+
+
+}
